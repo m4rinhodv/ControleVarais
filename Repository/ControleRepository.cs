@@ -25,6 +25,11 @@ public class ControleRepository : IControleRepository
         return _bancoContext.Clientes.ToList();
     }
 
+    public int ClientesHoje()
+    {
+        return _bancoContext.Clientes.Count(c => c.DataCadastro.Date == DateTime.Today);
+    }
+
     public ClientesModels Editar(int id)
     {
         var cliente = _bancoContext.Clientes.FirstOrDefault(x => x.Id == id);
@@ -59,9 +64,9 @@ public class ControleRepository : IControleRepository
         // 2. Atualiza apenas os campos necessários do registro existente
         clienteDb.Nome = clienteAlterado.Nome;
         clienteDb.Endereco = clienteAlterado.Endereco;
-        clienteDb.Telefone= clienteAlterado.Telefone;
+        clienteDb.Telefone = clienteAlterado.Telefone;
         clienteDb.Status = clienteAlterado.Status;
-        clienteDb.Observacoes= clienteAlterado.Observacoes;
+        clienteDb.Observacoes = clienteAlterado.Observacoes;
 
         // 3. Salva as alterações (o EF sabe que é um UPDATE porque o clienteDb veio do banco)
         _bancoContext.SaveChanges();

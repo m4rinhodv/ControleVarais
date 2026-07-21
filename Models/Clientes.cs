@@ -11,6 +11,7 @@ public class ClientesModels
     public string? Telefone { get; set; }
     public StatusOrcamento Status { get; set; }
     public string? Observacoes { get; set; }
+    public DateTime DataCadastro { get; set; } = DateTime.Now;
 
 
 

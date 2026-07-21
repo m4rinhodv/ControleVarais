@@ -16,8 +16,11 @@ public class ControleController : Controller
 
     public IActionResult Index()
     {
-        List<ClientesModels> clientes = _controleRepository.BuscarClientes();
-        return View(clientes);
+       ViewBag.ClientesHoje = _controleRepository.ClientesHoje();
+
+    List<ClientesModels> clientes = _controleRepository.BuscarClientes();
+
+    return View(clientes);
     }
 
     public IActionResult Excluir(int id)
