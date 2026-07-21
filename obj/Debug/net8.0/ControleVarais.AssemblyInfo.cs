@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ControleVarais")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e031534088bce3d51b87b63d828dad7d19a64972")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+555fd7b739ad3e54b10d6d93812e3a03bba9f201")]
 [assembly: System.Reflection.AssemblyProductAttribute("ControleVarais")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ControleVarais")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
