@@ -1,0 +1,53 @@
+@model ControleVarais.Models.ClientesModels
+@using ControleVarais.Enum
+@{
+    ViewData["Title"] = "Editar";
+}
+
+
+<form asp-controller="Controle" asp-action="SalvarEdit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Nome</label>
+        <input type="Nome" asp-for="Nome" class="form-control" id="exampleFormControlInput1"
+               placeholder="Nome do Cliente">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Endereço</label>
+        <input type="Endereco" asp-for="Endereco" class="form-control" id="exampleFormControlInput1"
+               placeholder="Telefone do Cliente">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Telefone</label>
+        <input type="Telefone" asp-for="Telefone" class="form-control" id="exampleFormControlInput1"
+               placeholder="Telefone do Cliente">
+    </div>
+
+
+    <div class="form-group">
+        <label for="exampleFormControlSelect2">Status Do Cliente</label>
+        <select asp-for="Status" asp-items="Html.GetEnumSelectList<StatusOrcamento>()" multiple class="form-control"
+                id="exampleFormControlSelect2">
+
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1" asp-for="Observacoes">Observaçoes</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+
+
+    <div class="d-grid gap-2 col-3 mx-auto mt-4">
+        <!-- AJUSTE 6: Transformado em <button type="submit"> para enviar o formulário -->
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a asp-controller="Controle" asp-action="Index" class="btn btn-secondary text-center">Voltar</a>
+    </div>
+
+</form>
