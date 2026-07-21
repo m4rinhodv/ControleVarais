@@ -144,3 +144,4 @@ C:\Users\User\ControleVarais\obj\Debug\net8.0\refint\ControleVarais.dll
 C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.pdb
 C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.genruntimeconfig.cache
 C:\Users\User\ControleVarais\obj\Debug\net8.0\ref\ControleVarais.dll
+C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.sourcelink.json
