@@ -127,6 +127,7 @@ C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.csproj.CoreCompileI
 C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.RazorAssemblyInfo.cache
 C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.RazorAssemblyInfo.cs
+C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.sourcelink.json
 C:\Users\User\ControleVarais\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\User\ControleVarais\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\User\ControleVarais\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -144,4 +145,3 @@ C:\Users\User\ControleVarais\obj\Debug\net8.0\refint\ControleVarais.dll
 C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.pdb
 C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.genruntimeconfig.cache
 C:\Users\User\ControleVarais\obj\Debug\net8.0\ref\ControleVarais.dll
-C:\Users\User\ControleVarais\obj\Debug\net8.0\ControleVarais.sourcelink.json

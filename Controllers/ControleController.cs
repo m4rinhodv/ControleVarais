@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-
+using ControleVarais.ViewModels;
 using ControleVarais.Repository;
 using ControleVarais.Models;
 
@@ -16,11 +16,14 @@ public class ControleController : Controller
 
     public IActionResult Index()
     {
-       ViewBag.ClientesHoje = _controleRepository.ClientesHoje();
 
-    List<ClientesModels> clientes = _controleRepository.BuscarClientes();
+        var viewModel = new ClientesViewModel
+        {
+            ClientesHoje = _controleRepository.BuscarClientesHoje(),
+            ClientesTotais = _controleRepository.BuscarClientes()
+        };
 
-    return View(clientes);
+        return View(viewModel);
     }
 
     public IActionResult Excluir(int id)
@@ -53,6 +56,7 @@ public class ControleController : Controller
     [HttpPost]
     public IActionResult Adicionar(ClientesModels cliente)
     {
+        cliente.DataCadastro = DateTime.UtcNow;
         _controleRepository.Adicionar(cliente);
         return RedirectToAction("Index");
     }

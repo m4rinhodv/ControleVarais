@@ -1,38 +1,80 @@
-﻿@model List<ClientesModels>
+﻿@model ControleVarais.ViewModels.ClientesViewModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <div class="text-center">
-    <h1>Clientes
 
-    </h1>
+    <h1>Clientes</h1>
+
+    <h2>Clientes de hoje</h2>
 
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">
-                    Nome
-                </th>
-                <th scope="col">
-                    Endereço
-                </th>
-                <th scope="col">
-                    Telefone
-                </th>
-                <th scope="col">
-                    Status
-                </th>
-
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Telefone</th>
+                <th>Status</th>
             </tr>
         </thead>
 
+        <tbody>
+
+            @if (Model.ClientesHoje == null || !Model.ClientesHoje.Any())
+            {
+                <tr>
+                    <td colspan="4">
+                        Nenhum cliente hoje
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var cliente in Model.ClientesHoje)
+                {
+                    <tr>
+                        <td>@cliente.Nome</td>
+                        <td>@cliente.Endereco</td>
+                        <td>@cliente.Telefone</td>
+
+                        @if ((int)cliente.Status == 1)
+                        {
+                            <td class="pedente">@cliente.Status</td>
+                        }
+                        else if ((int)cliente.Status == 2)
+                        {
+                            <td class="fechado">@cliente.Status</td>
+                        }
+                        else if ((int)cliente.Status == 3)
+                        {
+                            <td class="NaoFechado">@cliente.Status</td>
+                        }
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+
+
+    <h2>Todos os clientes</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Telefone</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
 
         <tbody>
-            <h3>Clientes hoje: @ViewBag.ClientesHoje</h3>
-            
-            @if (Model == null || !Model.Any())
+
+            @if (Model.ClientesTotais == null || !Model.ClientesTotais.Any())
             {
                 <tr>
                     <td colspan="5">
@@ -42,29 +84,28 @@
             }
             else
             {
-                @foreach (var cliente in Model)
+                foreach (var cliente in Model.ClientesTotais)
                 {
                     <tr>
-                        <th class="invisivel" scope="row">@cliente.Id</th>
                         <td>@cliente.Nome</td>
                         <td>@cliente.Endereco</td>
                         <td>@cliente.Telefone</td>
+
                         @if ((int)cliente.Status == 1)
                         {
                             <td class="pedente">@cliente.Status</td>
                         }
-                        @if ((int)cliente.Status == 2)
+                        else if ((int)cliente.Status == 2)
                         {
                             <td class="fechado">@cliente.Status</td>
                         }
-                        @if ((int)cliente.Status == 3)
+                        else if ((int)cliente.Status == 3)
                         {
                             <td class="NaoFechado">@cliente.Status</td>
                         }
 
                         <td>
-                            <div class="btn-group" role="group">
-
+                            <div class="btn-group">
                                 <a asp-controller="Controle" asp-action="Editar" asp-route-id="@cliente.Id"
                                    class="btn btn-primary">
                                     Editar
@@ -74,22 +115,19 @@
                                    class="btn btn-danger">
                                     Excluir
                                 </a>
-
                             </div>
                         </td>
-
-                        
 
                     </tr>
                 }
             }
 
-            <a asp-controller="Controle" asp-action="Adicionar" class="btn btn-primary">
-                Adicionar
-            </a>
-
-
         </tbody>
-
     </table>
+
+
+    <a asp-controller="Controle" asp-action="Adicionar" class="btn btn-primary">
+        Adicionar
+    </a>
+
 </div>

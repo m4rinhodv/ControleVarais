@@ -10,4 +10,6 @@ public interface IControleRepository
     bool SalvarEdit(ClientesModels cliente);
     bool Excluir(int id);
     int ClientesHoje();
+    List<ClientesModels> BuscarClientesHoje();
+    
 }

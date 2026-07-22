@@ -15,6 +15,7 @@ public class ControleRepository : IControleRepository
 
     public ClientesModels Adicionar(ClientesModels cliente)
     {
+
         _bancoContext.Add(cliente);
         _bancoContext.SaveChanges();
         return cliente;
@@ -23,6 +24,19 @@ public class ControleRepository : IControleRepository
     public List<ClientesModels> BuscarClientes()
     {
         return _bancoContext.Clientes.ToList();
+    }
+
+    public List<ClientesModels> BuscarClientesHoje()
+    {
+        var hojeBrasil = DateTime.UtcNow.AddHours(-3).Date;
+
+        var inicioUtc = hojeBrasil.AddHours(3);
+        var fimUtc = inicioUtc.AddDays(1);
+
+        return _bancoContext.Clientes
+            .Where(c => c.DataCadastro >= inicioUtc &&
+                        c.DataCadastro < fimUtc)
+            .ToList();
     }
 
     public int ClientesHoje()
